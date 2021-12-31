@@ -14,19 +14,7 @@ class _premadeState extends State<premade> {
   @override
   Widget build(BuildContext context) {
     var editingController;
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-
-        appBar: PreferredSize(
-            preferredSize: Size.fromHeight(60.0),
-            child : AppBar(
-              leading: Icon(Icons.home),
-              title: Text("MakeMyCake"),
-              centerTitle: true,
-              backgroundColor:Color.fromRGBO(118, 60, 0, 10),
-            )),
-        body: Container(
+    return  Container(
                   child: Column(
                     children: [
                       Padding(padding: EdgeInsets.all(10),
@@ -613,11 +601,7 @@ class _premadeState extends State<premade> {
       )]
 
 
-    )))
-
-                    ,
-
-                  );
+    ));
 
   }
 }

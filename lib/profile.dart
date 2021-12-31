@@ -10,18 +10,7 @@ class profile extends StatefulWidget {
 class _profileState extends State<profile> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: Scaffold(
-          appBar: PreferredSize(
-            preferredSize: Size.fromHeight(60.0),
-            child : AppBar(
-              leading: Icon(Icons.home),
-              title: Text("Account"),
-              centerTitle: true,
-              backgroundColor:Color.fromRGBO(118, 60, 0, 10),
-            ),),
-          body: SafeArea(
+    return  SafeArea(
             child: ListView(
                 children: <Widget>[
                   Container(
@@ -201,44 +190,6 @@ class _profileState extends State<profile> {
 
                 ]
             ),
-          ),
-          bottomNavigationBar: Padding(
-            padding: const EdgeInsets.all(0),
-            child: BottomNavigationBar(
-              backgroundColor: Color(0xFFEFEBE9),
-              selectedItemColor: Colors.lightBlueAccent,
-              unselectedItemColor: Colors.grey,
-              showUnselectedLabels: true,
-              items: const <BottomNavigationBarItem>[
-
-                BottomNavigationBarItem(
-
-                  icon: Icon(Icons.home,),
-                  label: 'Home',
-                ),
-                BottomNavigationBarItem(
-
-                  icon: Icon(Icons.cake),
-                  label: 'PreMade',
-
-                ),
-                BottomNavigationBarItem(
-
-                  icon: Icon(Icons.add_circle_rounded,size: 35,color: Colors.orangeAccent,),
-                  label: 'Create',
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.add_shopping_cart_outlined),
-                  label: 'Bag',
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.person),
-                  label: 'Account',
-                ),
-              ],
-            ),
-          ),
-        )
-    );
+          );
   }
 }

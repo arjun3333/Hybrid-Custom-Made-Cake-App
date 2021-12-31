@@ -11,23 +11,8 @@ class create extends StatefulWidget {
 class _createState extends State<create> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: Scaffold(
 
-        appBar: PreferredSize(
-        preferredSize: Size.fromHeight(60.0),
-
-
-    child : AppBar(
-    leading: Icon(Icons.home),
-    title: Text("MakeMyCake"),
-    centerTitle: true,
-    backgroundColor:Color.fromRGBO(118, 60, 0, 10),
-
-
-    )),
-          body:
+    return
           Column(
             children: [
               Container(
@@ -297,7 +282,7 @@ class _createState extends State<create> {
                   color: Colors.brown,
                 child: Text("Continue",style: TextStyle(color: Colors.black54,fontSize: 22),),),
               )
-        ])));
+        ]);
 
 
 

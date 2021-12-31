@@ -10,23 +10,7 @@ class sizes extends StatefulWidget {
 class _sizesState extends State<sizes> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: Scaffold(
-
-            appBar: PreferredSize(
-                preferredSize: Size.fromHeight(60.0),
-
-
-                child : AppBar(
-                  leading: Icon(Icons.home),
-                  title: Text("MakeMyCake"),
-                  centerTitle: true,
-                  backgroundColor:Color.fromRGBO(118, 60, 0, 10),
-
-
-                )),
-            body:
+    return
             Column(
                 children: [
                   Container(
@@ -323,6 +307,7 @@ class _sizesState extends State<sizes> {
                       color: Colors.brown,
                       child: Text("Continue",style: TextStyle(color: Colors.black54,fontSize: 22),),),
                   )
-                ])));
+                ],
+            );
   }
 }
