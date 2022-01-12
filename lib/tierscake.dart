@@ -2,6 +2,12 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:order_page/info.dart';
+import 'package:order_page/shapes.dart';
+import 'package:order_page/startScreen.dart';
+
+import 'create ui.dart';
+import 'home.dart';
 
 class tires extends StatefulWidget {
   const tires({Key? key}) : super(key: key);
@@ -22,7 +28,11 @@ class _tiresState extends State<tires> {
 
 
                 child : AppBar(
-                  leading: Icon(Icons.home),
+                  leading: IconButton(
+                    onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>page1()));
+                    },
+                    icon:  Icon(Icons.home),),
                   title: Text("MakeMyCake"),
                   centerTitle: true,
                   backgroundColor:Color.fromRGBO(118, 60, 0, 10),
@@ -51,7 +61,12 @@ class _tiresState extends State<tires> {
                                         width: 100,
                                         child: CircleAvatar(
 
-                                          child: Image.asset("icons/cak4.png",height: 60,width: 60,),
+                                          child: FlatButton(
+                                              onPressed: (){
+                                                Navigator.push(context,
+                                                    MaterialPageRoute(builder: (context)=>create()));
+                                              },
+                                              child: Image.asset("icons/cak2.png")),
                                         ),
                                       ),
                                       Text("Type",style: TextStyle(fontSize: 22),)
@@ -67,13 +82,20 @@ class _tiresState extends State<tires> {
                                         width: 100,
                                         child: CircleAvatar(
                                           backgroundColor: Colors.blueGrey,
-                                          child: Image.asset("icons/ss.png"),
+                                          child: FlatButton(
+                                              onPressed: (){
+                                                Navigator.push(context,
+                                                    MaterialPageRoute(builder: (context)=>shape()));
+                                              },
+
+                                              child: Image.asset("icons/ss.png")),
                                         ),
                                       ),
                                       Text("Shape",style: TextStyle(fontSize: 22),)
                                     ],
                                   ),
                                 ),
+
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Column(
@@ -82,22 +104,12 @@ class _tiresState extends State<tires> {
                                         height: 100,
                                         width: 100,
                                         child: CircleAvatar(
-                                          child: Image.asset("icons/measure.png"),
-                                        ),
-                                      ),
-                                      Text("Size",style: TextStyle(fontSize: 22),)
-                                    ],
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Column(
-                                    children: [
-                                      SizedBox(
-                                        height: 100,
-                                        width: 100,
-                                        child: CircleAvatar(
-                                          child: Image.asset("icons/layer.png"),
+                                          child: FlatButton(
+                                              onPressed: (){
+                                                Navigator.push(context,
+                                                    MaterialPageRoute(builder: (context)=>(tires())));
+                                              },
+                                              child: Image.asset("icons/layer.png")),
                                         ),
                                       ),
                                       Text("Tires",style: TextStyle(fontSize: 22),)
@@ -112,7 +124,14 @@ class _tiresState extends State<tires> {
                                         height: 100,
                                         width: 100,
                                         child: CircleAvatar(
-                                          child: Image.asset("icons/info.png"),
+                                          child: FlatButton(
+                                              onPressed: ()
+                                              {
+                                                Navigator.push(context,
+                                                    MaterialPageRoute(builder: (context)=>info()));
+
+                                              },
+                                              child: Image.asset("icons/info.png")),
                                         ),
                                       ),
                                       Text("Info",style: TextStyle(fontSize: 22),)
@@ -156,7 +175,7 @@ class _tiresState extends State<tires> {
                                     width: 150,
                                     child: Column(
                                       children: [
-                                        Image.asset("icons/single.png",),
+                                        Image.asset("icons/single.png",height: 120,),
                                         Text("Single tire",style: TextStyle(fontSize: 22,
                                             color: Colors.brown,fontWeight: FontWeight.w600),)
                                       ],
@@ -176,7 +195,7 @@ class _tiresState extends State<tires> {
                                       children: [
                                         Padding(
                                           padding: const EdgeInsets.only(top: 24,bottom: 10),
-                                          child: Image.asset("icons/glutan.png",height: 100,),
+                                          child: Image.asset("icons/two.png",height: 100,),
                                         ),
                                         Text("Two Tires",
                                           style: TextStyle(fontSize: 22,
@@ -203,7 +222,7 @@ class _tiresState extends State<tires> {
                                       children: [
                                         Padding(
                                           padding: const EdgeInsets.only(top: 18,bottom: 8),
-                                          child: Image.asset("icons/vegetarian.png",height: 100,),
+                                          child: Image.asset("icons/three.png",height: 100,),
                                         ),
                                         Text("Three Tires",style: TextStyle(fontSize: 22,
                                             color: Colors.brown,
@@ -226,7 +245,7 @@ class _tiresState extends State<tires> {
                                       children: [
                                         Padding(
                                           padding: const EdgeInsets.only(top: 18,bottom: 10),
-                                          child: Image.asset("icons/egg.png",height: 120,),
+                                          child: Image.asset("icons/four.png",height: 120,),
                                         ),
                                         Text("Four Tires",style: TextStyle(fontSize: 22,color: Colors.brown),)
                                       ],
@@ -250,7 +269,7 @@ class _tiresState extends State<tires> {
                                       children: [
                                         Padding(
                                           padding: const EdgeInsets.only(top:14,bottom: 20),
-                                          child: Image.asset("icons/flr.png",height: 80,),
+                                          child: Image.asset("icons/four.png",height: 80,),
                                         ),
                                         Text("Five Tires",style: TextStyle(fontSize: 22,color: Colors.brown),)
                                       ],
@@ -294,10 +313,31 @@ class _tiresState extends State<tires> {
                     decoration: BoxDecoration(borderRadius: BorderRadius.only(topRight: Radius.circular(12.0),topLeft:Radius.circular(12.0) )),
 
                     width: double.maxFinite,
-                    child: RaisedButton(onPressed: (){},
+                    child:
+                    Row(
 
-                      color: Colors.brown,
-                      child: Text("Continue",style: TextStyle(color: Colors.black54,fontSize: 22),),),
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left:40,
+                              right: 20),
+                          child: RaisedButton(onPressed: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => shape()));
+                          },
+
+                            color: Colors.brown,
+                            child: Text("Back",style: TextStyle(color: Colors.black54,fontSize: 22),),),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 60),
+                          child: RaisedButton(onPressed: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => info()));
+                          },
+
+                            color: Colors.brown,
+                            child: Text("Continue",style: TextStyle(color: Colors.black54,fontSize: 22),),),
+                        ),
+                      ],
+                    ),
                   )
                 ])));
   }
