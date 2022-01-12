@@ -1,4 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:order_page/create%20ui.dart';
+import 'package:order_page/home.dart';
+import 'package:order_page/startScreen.dart';
+import 'package:order_page/tierscake.dart';
+
+import 'nav.dart';
 class shape extends StatefulWidget {
   const shape({Key? key}) : super(key: key);
 
@@ -9,16 +16,23 @@ class shape extends StatefulWidget {
 class _shapeState extends State<shape> {
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Scaffold(
 
+
             appBar: PreferredSize(
+
                 preferredSize: Size.fromHeight(60.0),
 
 
                 child : AppBar(
-                  leading: Icon(Icons.home),
+                  leading: IconButton(
+                    onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>nav()));
+                    },
+                    icon:  Icon(Icons.home),),
                   title: Text("MakeMyCake"),
                   centerTitle: true,
                   backgroundColor:Color.fromRGBO(118, 60, 0, 10),
@@ -47,7 +61,12 @@ class _shapeState extends State<shape> {
                                         width: 100,
                                         child: CircleAvatar(
 
-                                          child: Image.asset("icons/cak4..png"),
+                                          child: FlatButton(
+                                              onPressed: (){
+                                                Navigator.push(context,
+                                                    MaterialPageRoute(builder: (context)=>create()));
+                                              },
+                                              child: Image.asset("icons/cak2.png")),
                                         ),
                                       ),
                                       Text("Type",style: TextStyle(fontSize: 22),)
@@ -63,13 +82,20 @@ class _shapeState extends State<shape> {
                                         width: 100,
                                         child: CircleAvatar(
                                           backgroundColor: Colors.blueGrey,
-                                          child: Image.asset("icons/ss.png"),
+                                          child: FlatButton(
+                                              onPressed: (){
+                                                Navigator.push(context,
+                                                    MaterialPageRoute(builder: (context)=>shape()));
+                                              },
+
+                                              child: Image.asset("icons/ss.png")),
                                         ),
                                       ),
                                       Text("Shape",style: TextStyle(fontSize: 22),)
                                     ],
                                   ),
                                 ),
+
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Column(
@@ -78,22 +104,12 @@ class _shapeState extends State<shape> {
                                         height: 100,
                                         width: 100,
                                         child: CircleAvatar(
-                                          child: Image.asset("icons/measure.png"),
-                                        ),
-                                      ),
-                                      Text("Size",style: TextStyle(fontSize: 22),)
-                                    ],
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Column(
-                                    children: [
-                                      SizedBox(
-                                        height: 100,
-                                        width: 100,
-                                        child: CircleAvatar(
-                                          child: Image.asset("icons/layer.png"),
+                                          child: FlatButton(
+                                              onPressed: (){
+                                                Navigator.push(context,
+                                                    MaterialPageRoute(builder: (context)=>(tires())));
+                                              },
+                                              child: Image.asset("icons/layer.png")),
                                         ),
                                       ),
                                       Text("Tires",style: TextStyle(fontSize: 22),)
@@ -108,7 +124,14 @@ class _shapeState extends State<shape> {
                                         height: 100,
                                         width: 100,
                                         child: CircleAvatar(
-                                          child: Image.asset("icons/info.png"),
+                                          child: FlatButton(
+                                              onPressed: ()
+                                              {
+                                                Navigator.push(context,
+                                                    MaterialPageRoute(builder: (context)=>shape()));
+
+                                              },
+                                              child: Image.asset("icons/info.png")),
                                         ),
                                       ),
                                       Text("Info",style: TextStyle(fontSize: 22),)
@@ -135,6 +158,8 @@ class _shapeState extends State<shape> {
                     color: Colors.white,
                     height: 150,
                     child: ListView(
+
+
                       shrinkWrap: true,
                       scrollDirection: Axis.vertical,
                       children: [
@@ -145,6 +170,7 @@ class _shapeState extends State<shape> {
                                 Padding(
                                   padding: const EdgeInsets.only(top: 18,left: 12,right: 10),
                                   child: Container(
+
                                     decoration: BoxDecoration(borderRadius: BorderRadius.circular(15),
                                       color: Colors.grey,),
 
@@ -152,7 +178,10 @@ class _shapeState extends State<shape> {
                                     width: 150,
                                     child: Column(
                                       children: [
-                                        Image.asset("icons/heart2.png",),
+                                        FlatButton(
+                                            onPressed: (){},
+
+                                            child: Image.asset("icons/heart2.png",)),
                                         Text("Heart",style: TextStyle(fontSize: 22,
                                             color: Colors.brown,fontWeight: FontWeight.w600),)
                                       ],
@@ -172,7 +201,7 @@ class _shapeState extends State<shape> {
                                       children: [
                                         Padding(
                                           padding: const EdgeInsets.only(top: 24,bottom: 10),
-                                          child: Image.asset("icons/hexagon1_cake.png",height: 100,),
+                                          child: Image.asset("icons/hexagon2_cake.png",height: 100,),
                                         ),
                                         Text("Hexagon",
                                           style: TextStyle(fontSize: 22,
@@ -266,7 +295,7 @@ class _shapeState extends State<shape> {
                                       children: [
                                         Padding(
                                           padding: const EdgeInsets.only(top: 28,bottom: 8),
-                                          child: Image.asset("icons/numeric2",height: 80,),
+                                          child: Image.asset("icons/numeric2.png",height: 80,),
                                         ),
                                         Text("Number",style: TextStyle(fontSize: 22,color: Colors.brown),)
                                       ],
@@ -290,10 +319,31 @@ class _shapeState extends State<shape> {
                     decoration: BoxDecoration(borderRadius: BorderRadius.only(topRight: Radius.circular(12.0),topLeft:Radius.circular(12.0) )),
 
                     width: double.maxFinite,
-                    child: RaisedButton(onPressed: (){},
+                    child:
+                    Row(
 
-                      color: Colors.brown,
-                      child: Text("Continue",style: TextStyle(color: Colors.black54,fontSize: 22),),),
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left:40,
+                              right: 20),
+                          child: RaisedButton(onPressed: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => create()));
+                          },
+
+                            color: Colors.brown,
+                            child: Text("Back",style: TextStyle(color: Colors.black54,fontSize: 22),),),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 60),
+                          child: RaisedButton(onPressed: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => tires()));
+                          },
+
+                            color: Colors.brown,
+                            child: Text("Continue",style: TextStyle(color: Colors.black54,fontSize: 22),),),
+                        ),
+                      ],
+                    ),
                   )
                 ])));
   }
