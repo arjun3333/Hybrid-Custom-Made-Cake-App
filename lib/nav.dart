@@ -30,7 +30,7 @@ class _navState extends State<nav> {
             preferredSize: const Size.fromHeight(60.0),
             child: AppBar(
               leading: const Icon(Icons.add_location_outlined),
-              title: const Text("MakeMyCake"),
+              title: const Text("Make My Cake"),
               centerTitle: true,
               backgroundColor: const Color.fromRGBO(118, 60, 0, 10),
             )),
