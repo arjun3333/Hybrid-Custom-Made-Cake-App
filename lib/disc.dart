@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:order_page/premade.dart';
 
 class disc extends StatefulWidget {
   const disc({Key? key}) : super(key: key);
@@ -18,7 +19,11 @@ class _discState extends State<disc> {
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(60.0),
           child : AppBar(
-            leading: Icon(Icons.home),
+            leading: IconButton(
+              icon: const Icon(Icons.arrow_back),
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>PreMade()));
+              },),
             title: Text("MakeMyCake"),
             centerTitle: true,
             backgroundColor:Color.fromRGBO(118, 60, 0, 10),
