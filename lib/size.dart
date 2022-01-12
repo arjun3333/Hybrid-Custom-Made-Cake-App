@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:order_page/shapes.dart';
+import 'package:order_page/tierscake.dart';
+
+import 'create ui.dart';
 
 class sizes extends StatefulWidget {
   const sizes({Key? key}) : super(key: key);
@@ -26,8 +30,7 @@ class _sizesState extends State<sizes> {
 
 
                 )),
-            body:
-            Column(
+            body:Column(
                 children: [
                   Container(
 
@@ -48,7 +51,12 @@ class _sizesState extends State<sizes> {
                                         width: 100,
                                         child: CircleAvatar(
 
-                                          child: Image.asset("icons/cak4..png"),
+                                          child: FlatButton(
+                                              onPressed: (){
+                                                Navigator.push(context,
+                                                    MaterialPageRoute(builder: (context)=>create()));
+                                              },
+                                              child: Image.asset("icons/cak2.png")),
                                         ),
                                       ),
                                       Text("Type",style: TextStyle(fontSize: 22),)
@@ -64,7 +72,13 @@ class _sizesState extends State<sizes> {
                                         width: 100,
                                         child: CircleAvatar(
                                           backgroundColor: Colors.blueGrey,
-                                          child: Image.asset("icons/ss.png"),
+                                          child: FlatButton(
+                                              onPressed: (){
+                                                Navigator.push(context,
+                                                    MaterialPageRoute(builder: (context)=>shape()));
+                                              },
+
+                                              child: Image.asset("icons/ss.png")),
                                         ),
                                       ),
                                       Text("Shape",style: TextStyle(fontSize: 22),)
@@ -79,7 +93,13 @@ class _sizesState extends State<sizes> {
                                         height: 100,
                                         width: 100,
                                         child: CircleAvatar(
-                                          child: Image.asset("icons/measure.png"),
+                                          child: FlatButton(
+                                              onPressed: (){
+                                                Navigator.push(context,
+                                                    MaterialPageRoute(builder: (context)=>sizes()));
+                                              },
+
+                                              child: Image.asset("icons/measure.png")),
                                         ),
                                       ),
                                       Text("Size",style: TextStyle(fontSize: 22),)
@@ -94,7 +114,12 @@ class _sizesState extends State<sizes> {
                                         height: 100,
                                         width: 100,
                                         child: CircleAvatar(
-                                          child: Image.asset("icons/layer.png"),
+                                          child: FlatButton(
+                                              onPressed: (){
+                                                Navigator.push(context,
+                                                    MaterialPageRoute(builder: (context)=>(tires())));
+                                              },
+                                              child: Image.asset("icons/layer.png")),
                                         ),
                                       ),
                                       Text("Tires",style: TextStyle(fontSize: 22),)
@@ -109,7 +134,14 @@ class _sizesState extends State<sizes> {
                                         height: 100,
                                         width: 100,
                                         child: CircleAvatar(
-                                          child: Image.asset("icons/info.png"),
+                                          child: FlatButton(
+                                              onPressed: ()
+                                              {
+                                                Navigator.push(context,
+                                                    MaterialPageRoute(builder: (context)=>shape()));
+
+                                              },
+                                              child: Image.asset("icons/info.png")),
                                         ),
                                       ),
                                       Text("Info",style: TextStyle(fontSize: 22),)
@@ -125,6 +157,7 @@ class _sizesState extends State<sizes> {
                     ),
 
                   ),
+
                   Padding(
                     padding: const EdgeInsets.only(top: 5,bottom: 32),
                     child: Text("please select appropriate cake options from \n available choices",
