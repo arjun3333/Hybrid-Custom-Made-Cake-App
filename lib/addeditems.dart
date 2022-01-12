@@ -1,55 +1,78 @@
 import 'package:flutter/material.dart';
 
-class AddedItems extends StatelessWidget {
-  const AddedItems({Key? key}) : super(key: key);
+import 'entity/cart_entity.dart';
 
+class AddedItems extends StatefulWidget {
+  final List<CartItem> cartItemList;
+
+  const AddedItems({
+    Key? key,
+    required this.cartItemList,
+  }) : super(key: key);
+
+  @override
+  State<AddedItems> createState() => _AddedItemsState();
+}
+
+class _AddedItemsState extends State<AddedItems> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 5.0,horizontal: 10.0),
-        child: ListView.builder(
+        padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
+        child: widget.cartItemList.isNotEmpty
+            ? ListView.builder(
             scrollDirection: Axis.vertical,
+            physics: NeverScrollableScrollPhysics(),
             shrinkWrap: true,
-            itemCount: 3,
+            itemCount: widget.cartItemList.length,
             itemBuilder: (context, index) {
               return Container(
                 margin: EdgeInsets.only(top: 10.0),
-                height: 150.0,
                 decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.circular(15.0)
-                ),
+                    borderRadius: BorderRadius.circular(15.0)),
                 child: Row(
+                  mainAxisSize: MainAxisSize.max,
                   children: <Widget>[
                     Container(
-                      margin: EdgeInsets.symmetric(vertical: 5.0,horizontal: 10.0),
+                      margin: EdgeInsets.symmetric(
+                          vertical: 5.0, horizontal: 10.0),
                       width: 100.0,
                       height: 100.0,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10.0),
-                          color: Colors.grey
-                      ),
-                      child: Image.asset('images/cake1.jpg'),
-
+                          color: Colors.grey),
+                      child: Image.network(
+                          widget.cartItemList[index].cakeImage),
                     ),
                     Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         Padding(
-                          padding: const EdgeInsets.only(top: 40.0,left: 10.0,bottom: 10.0),
+                          padding: EdgeInsets.only(bottom: 4.0),
                           child: Text(
-                            'Product Name',
+                            widget.cartItemList[index].cakeName,
                             style: TextStyle(
                                 fontSize: 20.0,
-                                fontWeight: FontWeight.w500
-                            ),
+                                fontWeight: FontWeight.w500),
                           ),
                         ),
                         Text(
-                          'Price: 40\$',
+                          'Quantity: ${widget.cartItemList[index].quantity}',
                           style: TextStyle(
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.w500
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(top: 4),
+                          child: Text(
+                            'Price: ${widget.cartItemList[index].price}\$',
+                            style: TextStyle(
+                                fontSize: 20.0,
+                                fontWeight: FontWeight.w500),
                           ),
                         ),
                       ],
@@ -57,33 +80,13 @@ class AddedItems extends StatelessWidget {
                     SizedBox(
                       width: 20.0,
                       height: 60.0,
-
-                    ),
-                    Column(
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.only(top: 40.0,bottom: 8.0),
-                          child: Text(
-                            'Quantity',
-                            style: TextStyle(
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
-                        Text(
-                          '10',
-                          style: TextStyle(
-                            fontSize: 20.0,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ],
                     ),
                   ],
                 ),
               );
-            }
+            })
+            : const Center(
+          child: CircularProgressIndicator(),
         ),
       ),
     );
