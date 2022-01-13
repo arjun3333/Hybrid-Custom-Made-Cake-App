@@ -230,7 +230,7 @@ class _PreMadeState extends State<PreMade> {
     CustomAlertDialog(
       context: context,
       title: "MakeMyCake",
-      message: "Please do a Login",
+      message: "Please complete Login ",
       okText: "Ok",
       onPressedOk: () {},
     ).show();
