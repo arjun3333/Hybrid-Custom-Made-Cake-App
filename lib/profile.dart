@@ -175,7 +175,7 @@ class _ProfileState extends State<Profile> {
                         color: Colors.brown,
                         fontSize: 18,
                       ),
-                      hintText: 'Enter your Password',
+                      hintText: 'Enter your Password here',
                     ),
                   ),
                 ),
@@ -329,7 +329,7 @@ class _ProfileState extends State<Profile> {
       // Once signed in, return the UserCredential
       var userCredential = await auth.signInWithCredential(credential);
       print("=== login success ${userCredential.user?.uid}");
-      _showSnackBar("You have SuccessFully Sign Up with Google");
+      _showSnackBar("You have Successfully Sign Up with Google");
     } on FirebaseAuthException catch (e) {
       print(e);
       _showLoginDialog(e.message);
