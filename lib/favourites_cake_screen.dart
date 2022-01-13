@@ -82,7 +82,7 @@ class _FavouritesCakeScreenState extends State<FavouritesCakeScreen> {
             : entity.isEmpty
             ? const Center(
           child: Text(
-            "You have not any Favorite Cakes",
+            "You do not have any Favorite Cakes",
             style: TextStyle(fontSize: 20),
           ),
         )
